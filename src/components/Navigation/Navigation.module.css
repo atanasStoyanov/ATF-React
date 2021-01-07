@@ -1,0 +1,15 @@
+.Navigation {
+    width: 100%;
+    margin: 1.5em 0;
+}
+
+.Navigation ul {
+    margin: 0;
+    padding: 0;
+}
+
+.Icon {
+    font-size: 1.5em;
+}
+
+

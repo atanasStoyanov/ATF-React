@@ -1,0 +1,10 @@
+.site-main {
+    margin-left: 20%;
+    display: block;
+}
+
+@media(max-width: 1025px) {
+    .site-main {
+        margin-left: 0;
+    }
+}

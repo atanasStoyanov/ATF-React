@@ -1,0 +1,65 @@
+.ar-box {
+    display: block;
+    background-color: #333;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ar-box:after {
+    display: block;
+    content: '';
+    background-color: #FFF;
+    padding-top: calc((9 / 16) * 100 * 1% );
+}
+
+.ar-box .ar-inner {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.ar-box .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in;
+}
+
+.slider:before{
+    display: block;
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background: rgba(19, 44, 48, 0.5);
+} 
+
+.right-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0.5em;
+    font-size: 3rem;
+    color: #222629;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 0.5em;
+    font-size: 3rem;
+    color:#222629;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}

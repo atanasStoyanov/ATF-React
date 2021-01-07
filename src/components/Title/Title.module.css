@@ -1,0 +1,18 @@
+.Title h1 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    font-weight: 800;
+    color:  rgb(247, 220, 95);
+    text-align: center;
+}
+
+.Title h6 {
+    margin: 0;
+    padding: 0;
+    padding-left: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 400;
+    color:  rgb(247, 220, 95);
+}

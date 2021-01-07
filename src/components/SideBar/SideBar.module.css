@@ -1,0 +1,26 @@
+.SideBar {
+    position: fixed;
+    z-index: 200;
+    height: 100%;
+    width: 20%;
+    max-width: 70%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: #222629;
+    box-sizing: border-box;
+    padding: 1em 1em;
+    color: #fff;
+    transition: transform 0.3s ease-out;
+}
+
+ @media (max-width: 1024px) {
+    .SideBar {
+        display: none;
+        transform: translateX(-100%);
+    }
+}
+
+
