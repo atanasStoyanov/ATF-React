@@ -1,9 +1,16 @@
+.Title {
+    position: relative;
+    z-index: 100;
+}
 .Title h1 {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif, sans-serif;
     font-weight: 800;
+    font-size: 6em;
     color:  rgb(247, 220, 95);
+    letter-spacing: 0.8em;
+    margin-right: -0.8em;
     text-align: center;
 }
 
@@ -12,7 +19,32 @@
     padding: 0;
     padding-left: 0;
     font-family: Helvetica, sans-serif;
-    font-size: 0.8em;
+    font-size: 1em;
     font-weight: 400;
     color:  rgb(247, 220, 95);
+    text-align: center;
+    letter-spacing: 0.4em;
+    margin-right: -0.4em;
+}
+
+
+
+@media(max-width: 1025px) {
+    .Title h1 {
+        font-size: 5em;
+    }
+
+    .Title h6 {
+        font-size: 0.8em
+    }
+}
+
+@media(max-width: 600px) {
+    .Title h1 {
+        font-size: 4.5em;
+    }
+
+    .Title h6 {
+        font-size: 0.7em
+    }
 }

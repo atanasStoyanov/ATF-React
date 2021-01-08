@@ -1,0 +1,50 @@
+.Info{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 6em 2em;
+    color:  rgb(247, 220, 95);
+    position: absolute;
+    z-index: 10;
+}
+
+.Info h3 {
+    font-family: Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+.Info .Slogan {
+    display: block;
+    width: 100%;
+    font-size: 1.2em;
+    text-align: right;
+    margin-right: 2em;
+}
+
+@media(max-width: 1025px) {
+    .Info {
+        margin:15em 2em
+    }
+
+    .Info h3 {
+        font-size: 1em;
+    }
+
+    .Info .Slogan {
+        font-size: 0.8em;
+    }
+}
+
+@media(max-width: 600px) {
+    .Info {
+        margin:15em 2em
+    }
+
+    .Info h3 {
+        font-size: 0.9em;
+    }
+
+    .Info .Slogan {
+        font-size: 0.7em;
+    }
+}
