@@ -5,6 +5,8 @@
 
 @media(max-width: 1025px) {
     .site-main {
-        margin-left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 }
