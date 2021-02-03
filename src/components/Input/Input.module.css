@@ -1,0 +1,24 @@
+.Label {
+    margin: 0 0 0.2em 0;
+    color: #222629;
+    font-size: 1.3rem;
+}
+
+.Input {
+    text-decoration: inherit;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid  rgb(247, 220, 95);
+    font-family: system-ui;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    color: black;
+    
+}
+
+.Form-div {
+    width: 80%;
+    margin: 0.5em 0;
+    display: flex;
+    flex-direction: column;
+}

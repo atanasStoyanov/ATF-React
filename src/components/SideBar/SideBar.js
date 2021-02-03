@@ -8,14 +8,7 @@ const SideBar = () => {
     return (
         <div className={styles.SideBar}>
             <Logo />
-            <Navigation/>
-            {/* <nav >
-                <ul>
-                    <li>Home</li>
-                    <li>Login</li>
-                    <li>Register</li>
-                </ul>
-            </nav> */}
+            <Navigation />
         </div>
     )
 }

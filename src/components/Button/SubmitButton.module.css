@@ -1,0 +1,23 @@
+.Submit {
+    margin: 0.5em 0.5em;
+    padding: 0.5em 1em;
+    border: none;
+    background-color: #222629;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #FFF;
+}
+
+.Submit:hover {
+    cursor: pointer;
+    background-color: rgb(247, 220, 95) ;
+    color: #222629;
+    transition: color 0.2s ease;
+    transition: background-color 0.3s ease;
+}
+
+.Submit:disabled {
+    background-color: #FFF;
+    color:  #aab0b4;
+    cursor: unset;
+}
