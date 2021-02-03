@@ -1,0 +1,66 @@
+.Media {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../images/sign-up.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+
+}
+
+.Media:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background: rgba(19, 44, 48, 0.5);
+}
+
+.Form {
+    position: relative;
+    width: 40%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+    border: 2px solid rgb(247, 220, 95) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1em;
+    z-index: 10;
+}
+
+.Form h3 {
+    font-family: Verdana, sans-serif;
+    color: #222629;
+}
+
+@media (max-width: 1025px) {
+    .Media{
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    .Form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 685px) {
+    .Media{
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    
+    .Form {
+        width: 80%;
+    }
+}

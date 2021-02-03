@@ -11,7 +11,7 @@ const Home = () => {
                 <InfoSection 
                 mainTitle='ATF' 
                 subTitle='Association of Tennis Friends'
-                message={'Welcome to ATF. Home of all tennis amateurs. Here you will find tournaments, oponents and new friends all united by the love of TENNIS!'}
+                message={'Welcome to ATF. Home of all tennis amateurs. Here you will find tournaments, opponents and new friends all united by the love of TENNIS!'}
                 slogan='Serve it, Smash it, Win it, Love it!'/>
             </AutoImageSlider>
         </PageLayout>
