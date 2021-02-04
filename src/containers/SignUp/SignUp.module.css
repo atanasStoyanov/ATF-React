@@ -41,6 +41,10 @@
     color: #222629;
 }
 
+.ErrorMsg {
+    color: red;
+}
+
 @media (max-width: 1025px) {
     .Media{
         background-repeat: no-repeat;

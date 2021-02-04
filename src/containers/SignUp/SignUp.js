@@ -85,12 +85,13 @@ const SignUp = props => {
 
         if (formElements.password.value !== formElements.rePassword.value) {
             setErrorMsg('Passwords do not match');
+            setLoading(false);
             return;
         }
 
         const authData = {
             email: formElements.email.value,
-            password: formElements.password.value,
+            password:formElements.password.value,
             returnSecureToken: true
         }
 
