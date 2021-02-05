@@ -1,37 +1,32 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import Home from './containers/Home/Home';
-import SignIn from './containers/SignIn/SignIn';
-import SignUp from './containers/SignUp/SignUp';
+import React, {useState} from 'react';
+
+import UserContext from './Context';
 
 const App = props => {
 
-  let routes = (
-    <Switch>
-      <Route path='/' exact component={Home} />
-      <Route path='/sign-in' component={SignIn} />
-      <Route path='/sign-up' component={ SignUp} />
-      <Redirect to='/' />
-    </Switch>
-  );
+  const [loggedIn, setLoggedIn] = useState(null);
+  const [user, setUser] = useState(null);
 
-  if (props.isAuthenticated) {
-    routes = (
-      <Switch>
-      <Route path='/' exact component={Home} />
-      {/* <Route path='/logout' component={Logout} />
-      <Route path='/players' component={Players} />
-      <Route path='/rankings' component={Rankings} /> */}
-      <Redirect to='/' />
-    </Switch>
-    )
+  const logIn = user => {
+    setLoggedIn(true);
+    setUser(user);
+  }
+
+  const logOut = () => {
+    setLoggedIn(false);
+    setUser(null);
   }
 
   return (
-    <div>
-      {routes}
-    </div>
-  );
+    <UserContext.Provider value={{
+      loggedIn,
+      user,
+      logIn,
+      logOut
+    }}>
+      {props.children}
+    </UserContext.Provider>
+  )
 }
 
 export default App;

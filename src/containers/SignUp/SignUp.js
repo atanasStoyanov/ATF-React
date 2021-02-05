@@ -1,19 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-import styles from './SignUp.module.css';
-import PageLayout from '../PageLayout/PageLayout';
 
+import styles from './SignUp.module.css';
+
+import PageLayout from '../PageLayout/PageLayout';
 import InputEl from '../../components/Input/InputEl';
 import SubmitButton from '../../components/Button/SubmitButton';
 import Spinner from '../../components/Spinner/Spinner';
+
 import { updateObject } from '../../utils/updateObject';
 import { checkValidity } from '../../utils/checkValidity';
+import {authenticate, createUserInDb} from '../../utils/authenticate';
+import UserContext from '../../Context';
 
 const SignUp = props => {
 
     const [formElements, setFormElements] = useState(
         {
+            name: {
+                elementType: 'input',
+                label: 'Name',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Name'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
             email: {
                 elementType: 'input',
                 label: 'Email',
@@ -66,6 +83,7 @@ const SignUp = props => {
     const [loading, setLoading] = useState(false);
 
     const history = useHistory();
+    const context = useContext(UserContext);
 
     const inputChangedHandler = (event, element) => {
         const updatedElements = updateObject(formElements, {
@@ -91,17 +109,25 @@ const SignUp = props => {
 
         const authData = {
             email: formElements.email.value,
-            password:formElements.password.value,
+            password: formElements.password.value,
             returnSecureToken: true
         }
 
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA6Peyo5GN3spsTPYMadeQlfkp91rj6YMA', authData)
-            .then(response => {
+        authenticate('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA6Peyo5GN3spsTPYMadeQlfkp91rj6YMA',
+            authData,
+            (user) => {
                 setLoading(false);
-                console.log(response);
+
+                const userData = {
+                    userId: user.userId,
+                    name: formElements.name.value
+                };
+                createUserInDb(userData);
+
+                context.logIn(user);
                 history.push('/');
-            })
-            .catch(err => {
+            },
+            (err) => {
                 setLoading(false);
                 setErrorMsg(err.response.data.error.message);
             });
@@ -131,14 +157,13 @@ const SignUp = props => {
         />
 
     ));
-
-
+    
     return (
         <PageLayout>
             <div className={styles.Media}>
                 <form className={styles.Form} onSubmit={handleSubmit}>
                     <h3>Create an Account</h3>
-                    {loading ? <Spinner/> : form}
+                    {loading ? <Spinner /> : form}
                     <p className={styles.ErrorMsg}>{errorMsg}</p>
                     <SubmitButton title='Create Account' />
                 </form>
