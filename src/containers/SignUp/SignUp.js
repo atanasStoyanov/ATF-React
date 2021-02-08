@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import styles from './SignUp.module.css';
 
@@ -166,6 +166,7 @@ const SignUp = props => {
                     {loading ? <Spinner /> : form}
                     <p className={styles.ErrorMsg}>{errorMsg}</p>
                     <SubmitButton title='Create Account' />
+                    <p>Already have an account? <NavLink to='/sign-in' className={styles.Link}>Sign In here</NavLink> </p>
                 </form>
             </div>
         </PageLayout>
