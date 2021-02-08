@@ -8,8 +8,6 @@ export const authenticate = async (url, authData, onSuccess, onFailure) => {
         const authToken = response.data.idToken;
         const userId = response.data.localId;
 
-        console.log(authToken);
-        console.log(userId);
         document.cookie = `x-auth-token=${authToken}`;
         document.cookie = ` user=${userId}`;
 
