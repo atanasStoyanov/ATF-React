@@ -3,7 +3,7 @@ import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 import styles from './SideBar.module.css';
 
-const SideBar = () => {
+const SideBar = props => {
 
     return (
         <div className={styles.SideBar}>
