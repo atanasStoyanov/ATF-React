@@ -13,7 +13,7 @@ const About = props => (
                 <p className={styles.Info}>Thanks to the ATF rating we provide the opportunity for every fan of the game to find their place in the tennis community according to their skills and current abilities. It also enables players to track their development and encourage them to work on improving their skills and reach new heights in tennis.</p>
                 <p className={styles.Info}>The Association of Tennis Friends will continue to develop its website and plans to become a social platform through which you can quickly find a partner for training or a match. ATF also plans to organize tournaments in the future.</p>
             </div>
-            <img src={aboutImg} />
+            <img src={aboutImg} alt='about' />
         </div>
     </section>
 );

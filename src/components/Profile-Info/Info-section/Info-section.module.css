@@ -1,0 +1,15 @@
+.Info-section {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+}
+
+.Row {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.Value span {
+    font-size: small;
+}
