@@ -1,0 +1,23 @@
+.Name {
+    display: flex;
+    flex-flow: column;
+}
+.Name h1 {
+    color: #e7e7e7;
+    position: relative;
+    z-index: 100;
+    font-family: Helvetica, sans-serif;
+    font-size: 4em;
+    font-weight: 700;
+    padding: 0 0 0 1.5rem;
+    margin-bottom: 0;
+}
+
+.Name h4 {
+    color: #e7e7e7;
+    position: relative;
+    z-index: 100;
+    font-family: Helvetica, sans-serif;
+    font-size: 2em;
+    padding: 1.5rem 0 0 1.5rem;
+}

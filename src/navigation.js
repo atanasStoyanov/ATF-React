@@ -6,6 +6,7 @@ import Aux from './hoc/Auxiliary/Auxiliary';
 import Home from './containers/Home/Home';
 import SignIn from './containers/SignIn/SignIn';
 import SignUp from './containers/SignUp/SignUp';
+import Profile from './containers/Profile/Profile';
 
 const Navigation = props => {
 
@@ -15,22 +16,22 @@ const Navigation = props => {
         loggedIn
     } = context;
 
-        let routes = (
-            <Switch>
-                <Route path='/' exact component={Home} />
-                <Route path='/sign-in' component={SignIn} />
-                <Route path='/sign-up' component={SignUp} />
-                <Redirect to='/' />
-            </Switch>
-        );
+    let routes = (
+        <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/sign-in' component={SignIn} />
+            <Route path='/sign-up' component={SignUp} />
+            <Redirect to='/' />
+        </Switch>
+    );
 
     if (loggedIn) {
         routes = (
             <Switch>
                 <Route path='/' exact component={Home} />
-                {/* <Route path='/logout' component={Logout} />
-          <Route path='/players' component={Players} />
-          <Route path='/rankings' component={Rankings} /> */}
+                <Route path='/profile/:userId' component={Profile} />
+                {/* <Route path='/players' component={Players} />
+                <Route path='/rankings' component={Rankings} /> */}
                 <Redirect to='/' />
             </Switch>
         )
@@ -38,7 +39,7 @@ const Navigation = props => {
 
     return (
         <Aux>
-            { routes }
+            { routes}
         </Aux>
     );
 }
