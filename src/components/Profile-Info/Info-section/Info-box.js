@@ -3,7 +3,6 @@ import React from 'react';
 import styles from './Info-box.module.css';
 
 const InfoBox = props => {
-    const row = props.row;
     const valueStyle = props.row === '1' ? 'First-row-value' : 'Second-row-value';
 
     return (

@@ -1,11 +1,15 @@
 .Submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0.5em 0.5em;
     padding: 0.5em 1em;
     border: none;
     background-color: #222629;
     font-size: 1.2rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    color: #FFF;
+    color: rgb(247, 220, 95);
+    min-width: 45%
 }
 
 .Submit:hover {
