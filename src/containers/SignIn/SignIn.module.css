@@ -39,6 +39,7 @@
 .Form h3 {
     font-family: Verdana, sans-serif;
     color: #222629;
+    text-align: center;
 }
 
 .ErrorMsg {

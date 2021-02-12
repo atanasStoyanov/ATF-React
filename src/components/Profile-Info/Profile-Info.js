@@ -9,7 +9,7 @@ import InfoSection from './Info-section/Info-section';
 
 const ProfileInfo = props => (
     <div className={styles.Media}>
-        <NameSection name={props.userData.name || '-'} surname={props.userData.surname || '-'} />
+        <NameSection firstName={props.userData.firstName || '-'} secondName={props.userData.secondName || '-'} />
         <MiddleSection rating={props.userData.rating || '0'} img={props.userData.image || playerIcon}/>
         <InfoSection userData={props.userData}/>
     </div>

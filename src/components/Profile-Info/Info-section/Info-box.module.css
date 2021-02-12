@@ -15,23 +15,59 @@
     border-left: none;
 }
 
+.Meta {
+    color: rgb(247, 220, 95);
+}
+
 .Box p {
-    position: relative;
     z-index: 10;
-    color: #e7e7e7;
     padding: 1rem 0;
-    padding-right: 1em;
+    padding-right: 1rem;
     margin: 0;
 }
 
 .First-row-value {
     font-size: 2.5em;
+    color: #e7e7e7;
 }
 
 .Second-row-value{
     font-size: 1.3em;
+    color: #e7e7e7;
 }
 
 span {
     font-size: small;
+}
+
+/* @media (max-width: 1025px) {
+    
+} */
+
+@media (max-width: 685px) {
+    .Box {
+        display: flex;
+        flex-flow: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+        height: auto;
+        padding: 0.3rem;
+
+    }
+
+    .Box p {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .First-row-value {
+        font-size: 1.8rem;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .Second-row-value{
+        font-size: 1.1rem;
+    }
 }
