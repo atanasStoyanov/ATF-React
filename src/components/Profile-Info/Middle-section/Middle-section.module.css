@@ -75,3 +75,37 @@
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease-in;
 }
+
+
+@media (max-width: 1025px) {
+    .User-img {
+        width: 50%;
+    }
+
+    .Rating h2 {
+        font-size: 6rem;
+    }
+
+    .Rating p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 685px) {
+    .Middle-section {
+        flex-flow: column-reverse;
+        align-items: center;
+    }
+
+    .User-img {
+        width: 80%;
+    }
+
+    .Rating h2 {
+        font-size: 4rem;
+    }
+
+    .Rating p {
+        font-size: 1rem;
+    }
+}

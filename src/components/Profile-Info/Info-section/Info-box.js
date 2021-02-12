@@ -7,7 +7,7 @@ const InfoBox = props => {
 
     return (
         <div className={styles.Box}>
-            <p>{props.title}</p>
+            <p className={styles.Meta}>{props.title}</p>
             <p className={styles[valueStyle]}>{props.value}<span> {props.unit}</span></p>
         </div>
     );

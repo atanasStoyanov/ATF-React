@@ -49,7 +49,7 @@
     }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 685px) {
     .Content {
         margin: 0 2em;
     }

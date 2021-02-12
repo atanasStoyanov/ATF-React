@@ -19,4 +19,23 @@
     background: rgba(12, 12, 12, 0.4);
 }
 
+@media (max-width: 1025px) {
+    .Media {
+        height: 100vh;
+    }
 
+    .Media:before {
+        width: 100%;
+    }
+}
+
+@media (max-width: 685px) {
+    .Media {
+        height: auto;
+    }
+
+    .Media:before {
+        width: 100%;
+        height: auto;
+    }
+}

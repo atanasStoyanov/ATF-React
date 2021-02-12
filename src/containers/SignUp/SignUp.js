@@ -17,12 +17,26 @@ const SignUp = props => {
 
     const [formElements, setFormElements] = useState(
         {
-            name: {
+            firstName: {
                 elementType: 'input',
-                label: 'Name',
+                label: 'First Name',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Name'
+                    placeholder: 'First Name'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            secondName: {
+                elementType: 'input',
+                label: 'Second Name',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Second Name'
                 },
                 value: '',
                 validation: {
@@ -120,7 +134,8 @@ const SignUp = props => {
 
                 const userData = {
                     userId: user.userId,
-                    name: formElements.name.value
+                    firstName: formElements.firstName.value,
+                    secondName: formElements.secondName.value
                 };
                 createUserInDb(userData);
 
