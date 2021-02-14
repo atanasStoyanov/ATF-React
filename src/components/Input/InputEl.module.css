@@ -1,8 +1,7 @@
 .InputElement {
     width: 80%;
-    margin: 0.5em 0;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0.5rem 0;
 }
 
 .InputElement:focus {
@@ -20,6 +19,13 @@
     font-size: 1rem;
     padding: 0.5rem 1.5rem;
     color: black;
+    font-weight: 400;
+}
+
+.SelectInputElement {
+    width: 40%;
+    margin: 0;
+    padding: 0.5rem 0;
 }
 
 .Invalid {
@@ -27,6 +33,7 @@
 }
 
 .Label {
+    width: 80%;
     color: #222629;
     font-size: 1.3rem;
 }
@@ -36,4 +43,23 @@
     padding: 0;
     color: red;
     font-size: 0.8em;
+}
+
+.Select {
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(247, 220, 95) ;
+    background-color: transparent;
+    transition-duration:.2s;
+	transition-property:none;
+	transition-timing-function:cubic-bezier(.42,0,.58,1)
+}
+
+.Select:focus {
+    outline: none;
+    background-color: #ccc;
 }

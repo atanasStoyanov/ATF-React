@@ -35,7 +35,7 @@ const InputEl = props => {
             break;
             case 'select': 
             inputElement = (<select
-                className={inputClasses.join(' ')}
+                className={styles.Select}
                 value={props.value}
                 onChange={props.changed}
             >
@@ -52,8 +52,10 @@ const InputEl = props => {
             break;
     }
 
+    const test = props.elementType !== 'select' ? 'InputElement' : 'SelectInputElement'
+
     return (
-        <div className={styles.InputElement}>
+        <div className={styles[test]}>
             <label className={styles.Label} >{props.label}</label>
             {inputElement}
             {validationError}

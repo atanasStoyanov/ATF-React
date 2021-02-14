@@ -13,7 +13,7 @@ const InfoSection = props => (
         </div>
         <div className={styles.Row}>
             <InfoBox title='Birthplace' value={props.userData.birthplace || '-'} row='2' />
-            <InfoBox title='Play' value={props.userData.play || '-'} row='2'/>
+            <InfoBox title='Plays' value={props.userData.plays || '-'} row='2'/>
             <InfoBox title='Backhand' value={props.userData.backhand || '-'} row='2'/>
         </div>
     </section>
