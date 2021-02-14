@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 
-import axios from '../../axios-db';
+import { getUserData } from '../../utils/getUserData';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import PageLayout from '../PageLayout/PageLayout';
@@ -27,16 +27,9 @@ const Profile = props => {
     const currentUserId = context.user.userId;
 
 
-    const getUserData = useCallback(async () => {
-        const queryParams = `?orderBy="userId"&equalTo="${userId}"`;
-        const response = await axios.get('/players.json' + queryParams);
-
-        const data = [];
-        for (const user in response.data) {
-            data.push(response.data[user]);
-        }
-
-        const userInfo = data[0];
+    const getData = useCallback(async () => {
+        
+        const userInfo = await getUserData(userId);
         setUser(userInfo);
 
         const isCurrent = userInfo.userId === currentUserId;
@@ -52,15 +45,16 @@ const Profile = props => {
 
 
     useEffect(() => {
-        getUserData();
-    }, [getUserData]);
+        getData();
+    }, [getData]);
 
     let controls = null;
 
     if (isCurrentUser) {
+
         controls = (
             <div className={styles.Controls}>
-                <LinkButton to='/edit-profile' title='Edit Profile' />
+                <LinkButton to={`/profile/edit/${user && userId}`} title='Edit Profile' />
                 <SubmitButton onClick={deleteAccount} title='Delete Account' />
             </div>
         );

@@ -7,6 +7,7 @@ import Home from './containers/Home/Home';
 import SignIn from './containers/SignIn/SignIn';
 import SignUp from './containers/SignUp/SignUp';
 import Profile from './containers/Profile/Profile';
+import UpdateProfile from './containers/Edit-profile/Edit-profile';
 
 const Navigation = props => {
 
@@ -29,7 +30,8 @@ const Navigation = props => {
         routes = (
             <Switch>
                 <Route path='/' exact component={Home} />
-                <Route path='/profile/:userId' component={Profile} />
+                <Route path='/profile/:userId' exact component={Profile} />
+                <Route path='/profile/edit/:userId' component={UpdateProfile}/>
                 {/* <Route path='/players' component={Players} />
                 <Route path='/rankings' component={Rankings} /> */}
                 <Redirect to='/' />

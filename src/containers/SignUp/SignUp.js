@@ -135,8 +135,17 @@ const SignUp = props => {
                 const userData = {
                     userId: user.userId,
                     firstName: formElements.firstName.value,
-                    secondName: formElements.secondName.value
+                    secondName: formElements.secondName.value,
+                    email: formElements.email.value,
+                    age: '-',
+                    weight: '-',
+                    height: '-',
+                    birthplace: '-',
+                    plays: '-',
+                    backhand: '-',
+                    rating: 0
                 };
+
                 createUserInDb(userData);
 
                 context.logIn(user);
