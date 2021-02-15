@@ -1,18 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import styles from './Edit-profile.module.css';
+
 
 import PageLayout from '../PageLayout/PageLayout';
 import InputEl from '../../components/Input/InputEl';
+import Spinner from '../../components/Spinner/Spinner';
+import SubmitButton from '../../components/Button/SubmitButton';
 
 import { checkValidity } from '../../utils/checkValidity';
-import { getUserData } from '../../utils/getUserData';
+import { getUserData, updateUserInDb } from '../../utils/user';
 import { updateObject } from '../../utils/updateObject';
+import { uploadImage } from '../../utils/uploadImage';
+
 import playerIcon from '../../images/player-icon.png'
 
 
-import styles from './Edit-profile.module.css';
-
 const UpdateProfile = props => {
+
     const [formElements, setFormElements] = useState(
         {
             firstName: {
@@ -112,8 +117,9 @@ const UpdateProfile = props => {
                 formType: 'tennis',
                 elementConfig: {
                     options: [
-                        { value: 'rightHanded', displayedValue: 'Right-Handed' },
-                        { value: 'leftHanded', displayedValue: 'Left-Handed' }
+                        { value: '-', displayedValue: 'Select Plays' },
+                        { value: 'Right-Handed', displayedValue: 'Right-Handed' },
+                        { value: 'Left-Handed', displayedValue: 'Left-Handed' }
                     ]
                 },
                 value: 'rightHanded',
@@ -126,8 +132,9 @@ const UpdateProfile = props => {
                 formType: 'tennis',
                 elementConfig: {
                     options: [
-                        { value: 'oneHanded', displayedValue: 'One-Handed' },
-                        { value: 'twoHanded', displayedValue: 'Two-Handed' }
+                        { value: '-', displayedValue: 'Select Backhand' },
+                        { value: 'One-Handed', displayedValue: 'One-Handed' },
+                        { value: 'Two-Handed', displayedValue: 'Two-Handed' }
                     ]
                 },
                 value: 'rightHanded',
@@ -150,6 +157,10 @@ const UpdateProfile = props => {
         }
     )
 
+    const [loading, setLoading] = useState(false);
+    const [loadingSubmit, setLoadingSubmit] = useState(false);
+    const [userInDb, setUserInDb] = useState('');
+
     const history = useHistory();
     const params = useParams();
 
@@ -157,6 +168,8 @@ const UpdateProfile = props => {
 
     const getData = useCallback(async () => {
         const userInfo = await getUserData(userId);
+
+        setUserInDb(userInfo.userIdentification);
 
         let updatedElements = { ...formElements };
 
@@ -175,7 +188,7 @@ const UpdateProfile = props => {
 
         setFormElements(updatedElements);
 
-    }, [userId, formElements]);
+    }, [userId]);
 
     useEffect(() => {
         getData();
@@ -191,6 +204,43 @@ const UpdateProfile = props => {
         });
 
         setFormElements(updatedElements);
+    }
+
+    const uploadImageHandler = async event => {
+        setLoading(true);
+
+        const imageUrl = await uploadImage(event.target.files, 'https://api.cloudinary.com/v1_1/dbnasko/image/upload', 'ATF-user-pictures');
+
+        const updatedElements = updateObject(formElements, {
+            'image': updateObject(formElements.image, {
+                value: imageUrl
+            })
+        });
+
+        setFormElements(updatedElements);
+        setLoading(false);
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setLoadingSubmit(true);
+
+        const userData = {
+            firstName: formElements.firstName.value,
+            secondName: formElements.secondName.value,
+            birthplace: formElements.birthplace.value,
+            age: formElements.age.value,
+            height: formElements.height.value,
+            weight: formElements.weight.value,
+            plays: formElements.plays.value,
+            backhand: formElements.backhand.value,
+            image: formElements.image.value
+        }
+
+        await updateUserInDb(userData, userInDb);
+
+        setLoadingSubmit(false);
+        history.push(`/profile/${userId}`);
     }
 
     const formElementsArray = [];
@@ -262,40 +312,49 @@ const UpdateProfile = props => {
                 invalid={!formElement.config.valid}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                changed={event => inputChangedHandler(event, formElement.id)}
+                changed={event => uploadImageHandler(event)}
             />
         ));
 
     return (
         <PageLayout>
             <div className={styles.Media}>
-                <form className={styles.Form}>
-                    <h3>Edit Profile Details</h3>
-                    <div className={styles.Elements}>
-                        <div className={styles['Inputs-section']}>
-                            <fieldset className={styles.Fields}>
-                                <legend className={styles.Legend}>Personal</legend>
-                                {personalElements}
-                            </fieldset>
-                            <fieldset className={styles.Fields}>
-                                <legend className={styles.Legend}>Measures</legend>
-                                {measuresElements}
-                            </fieldset>
-                        </div>
-                        <div className={styles['Image-section']}>
-                            <div className={styles['User-img']}>
-                                <div className={styles['Ar-box']}>
-                                    <img src={formElements.image.value || playerIcon} alt='profile' className={styles.Image} />
+                {loadingSubmit ?
+                    <Spinner /> :
+                    (
+                        <form className={styles.Form} onSubmit={handleSubmit}>
+                            <h3>Edit Profile Details</h3>
+                            <div className={styles.Elements}>
+                                <div className={styles['Inputs-section']}>
+                                    <fieldset className={styles.Fields}>
+                                        <legend className={styles.Legend}>Personal</legend>
+                                        {personalElements}
+                                    </fieldset>
+                                    <fieldset className={styles.Fields}>
+                                        <legend className={styles.Legend}>Measures</legend>
+                                        {measuresElements}
+                                    </fieldset>
+                                </div>
+                                <div className={styles['Image-section']}>
+                                    <div className={styles['User-img']}>
+                                        <div className={styles['Ar-box']}>
+                                            {loading ?
+                                                <Spinner /> :
+                                                <img src={formElements.image.value || playerIcon} alt='profile' className={styles.Image} />
+                                            }
+                                        </div>
+                                    </div>
+                                    {imageElement}
                                 </div>
                             </div>
-                            {imageElement}
-                        </div>
-                    </div>
-                    <fieldset className={styles['Tennis-fields']}>
-                        <legend className={styles.Legend}>Tennis</legend>
-                        {tennisElements}
-                    </fieldset>
-                </form>
+                            <fieldset className={styles['Tennis-fields']}>
+                                <legend className={styles.Legend}>Tennis</legend>
+                                {tennisElements}
+                            </fieldset>
+                            <SubmitButton title='Save updates' />
+                        </form>
+                    )
+                }
             </div>
         </PageLayout>
     )

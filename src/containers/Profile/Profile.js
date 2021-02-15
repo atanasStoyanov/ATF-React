@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 
-import { getUserData } from '../../utils/getUserData';
+import { getUserData } from '../../utils/user';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import PageLayout from '../PageLayout/PageLayout';
