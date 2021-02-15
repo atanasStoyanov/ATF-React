@@ -1,0 +1,21 @@
+.Inputs-section {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 45%;
+}
+
+.Fields {
+    width: 100%;
+    border: 2px solid rgb(247, 220, 95);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.Legend {
+    font-size: 1.5em;
+    color: rgb(247, 220, 95);
+    margin: 0.5em; 
+    padding: 0 0.2em;
+}

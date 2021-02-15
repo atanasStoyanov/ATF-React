@@ -7,6 +7,8 @@ import PageLayout from '../PageLayout/PageLayout';
 import InputEl from '../../components/Input/InputEl';
 import Spinner from '../../components/Spinner/Spinner';
 import SubmitButton from '../../components/Button/SubmitButton';
+import InputSection from './InputSection/InputSection';
+import ImageSection from './ImageSection/ImageSection';
 
 import { checkValidity } from '../../utils/checkValidity';
 import { getUserData, updateUserInDb } from '../../utils/user';
@@ -14,6 +16,7 @@ import { updateObject } from '../../utils/updateObject';
 import { uploadImage } from '../../utils/uploadImage';
 
 import playerIcon from '../../images/player-icon.png'
+import TennisSection from './TennisSection/TennisSection';
 
 
 const UpdateProfile = props => {
@@ -325,32 +328,10 @@ const UpdateProfile = props => {
                         <form className={styles.Form} onSubmit={handleSubmit}>
                             <h3>Edit Profile Details</h3>
                             <div className={styles.Elements}>
-                                <div className={styles['Inputs-section']}>
-                                    <fieldset className={styles.Fields}>
-                                        <legend className={styles.Legend}>Personal</legend>
-                                        {personalElements}
-                                    </fieldset>
-                                    <fieldset className={styles.Fields}>
-                                        <legend className={styles.Legend}>Measures</legend>
-                                        {measuresElements}
-                                    </fieldset>
-                                </div>
-                                <div className={styles['Image-section']}>
-                                    <div className={styles['User-img']}>
-                                        <div className={styles['Ar-box']}>
-                                            {loading ?
-                                                <Spinner /> :
-                                                <img src={formElements.image.value || playerIcon} alt='profile' className={styles.Image} />
-                                            }
-                                        </div>
-                                    </div>
-                                    {imageElement}
-                                </div>
+                                <InputSection personalElements={personalElements} measuresElements={measuresElements}/>
+                                <ImageSection loading={loading} imageElement={imageElement} src={formElements.image.value || playerIcon}/>
                             </div>
-                            <fieldset className={styles['Tennis-fields']}>
-                                <legend className={styles.Legend}>Tennis</legend>
-                                {tennisElements}
-                            </fieldset>
+                            <TennisSection tennisElements={tennisElements}/>
                             <SubmitButton title='Save updates' />
                         </form>
                     )
