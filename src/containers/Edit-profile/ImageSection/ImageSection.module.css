@@ -1,0 +1,46 @@
+.Image-section {
+    width: 45%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+/* Aspect-ratio image */
+
+.User-img {
+    display: block;
+    width: 80%;
+    background-color: rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(247, 220, 95);
+    border-radius: 50%;
+    margin: 0 4rem ;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.8);
+}
+
+.User-img:after {
+    display: block;
+    content: '';
+    background-color: #FFF;
+    padding-top: calc((1 / 1) * 100 * 1% );
+}
+
+.User-img .Ar-box {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.User-img .Image {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in;
+}
