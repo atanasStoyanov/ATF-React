@@ -10,7 +10,7 @@ import Spinner from '../../components/Spinner/Spinner';
 
 import { checkValidity } from '../../utils/checkValidity';
 import { updateObject } from '../../utils/updateObject';
-import {authenticate} from '../../utils/authenticate';
+import {authenticate} from '../../utils/user';
 
 import UserContext from '../../Context';
 

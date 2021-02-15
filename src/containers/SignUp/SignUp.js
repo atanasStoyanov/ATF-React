@@ -10,7 +10,7 @@ import Spinner from '../../components/Spinner/Spinner';
 
 import { updateObject } from '../../utils/updateObject';
 import { checkValidity } from '../../utils/checkValidity';
-import {authenticate, createUserInDb} from '../../utils/authenticate';
+import {authenticate, createUserInDb} from '../../utils/user';
 import UserContext from '../../Context';
 
 const SignUp = props => {
@@ -137,12 +137,12 @@ const SignUp = props => {
                     firstName: formElements.firstName.value,
                     secondName: formElements.secondName.value,
                     email: formElements.email.value,
-                    age: '-',
-                    weight: '-',
-                    height: '-',
-                    birthplace: '-',
-                    plays: '-',
-                    backhand: '-',
+                    age: null,
+                    weight: null,
+                    height: null,
+                    birthplace: null,
+                    plays: null,
+                    backhand: null,
                     rating: 0
                 };
 
