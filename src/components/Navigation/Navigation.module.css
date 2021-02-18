@@ -12,8 +12,6 @@
     font-size: 1.5em;
 }
 
-
-
 .NavigationItem {
     margin: 0;
     padding: 0 0;
@@ -43,4 +41,11 @@
 .NavigationItem a.active {
     color:  rgb(247, 220, 95);
     background-color: rgb(29,32,35);
+}
+
+.Line {
+    border-width: 1px;
+    border-style: solid;
+    border-image: 
+    radial-gradient( rgba(247, 220, 95, 0.5), rgba(131, 144, 151, 0)) 0.5;
 }

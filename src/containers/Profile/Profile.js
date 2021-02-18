@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import styles from './Profile.module.css';
 
 import { getUserData } from '../../utils/user';
+import getCookie from '../../utils/getCookie';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import PageLayout from '../PageLayout/PageLayout';
@@ -28,7 +29,7 @@ const Profile = props => {
 
 
     const getData = useCallback(async () => {
-        
+
         const userInfo = await getUserData(userId);
         setUser(userInfo);
 
@@ -40,6 +41,9 @@ const Profile = props => {
 
     const deleteAccount = () => {
         console.log('Account Deleted');
+        const cookie = getCookie('x-auth-token');
+        console.log(cookie);
+
         history.push('/')
     }
 

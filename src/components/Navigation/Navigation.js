@@ -29,6 +29,7 @@ const Navigation = props => {
         <ul>
             <ScrollNavItem smooth to='/#home'><FaHome className={styles.Icon} />Home</ScrollNavItem>
             <ScrollNavItem smooth to='/#about' ><FaInfoCircle className={styles.Icon} />About</ScrollNavItem>
+            <hr className={styles.Line} />
             <NavigationItem link='/sign-in'> <GoSignIn className={styles.Icon} /> Sign In</NavigationItem>
             <NavigationItem link='/sign-up'> <FaRegIdCard className={styles.Icon} /> Sign Up</NavigationItem>
         </ul>
@@ -39,9 +40,11 @@ const Navigation = props => {
             <ul>
                 <ScrollNavItem smooth to='/#home'><FaHome className={styles.Icon} />Home</ScrollNavItem>
                 <ScrollNavItem smooth to='/#about' ><FaInfoCircle className={styles.Icon} />About</ScrollNavItem>
-                <NavigationItem link={`/profile/${user && user.userId}`} > <FaUser className={styles.Icon} />Profile</NavigationItem>
+                <hr className={styles.Line} />
                 <NavigationItem link='/players'> <FaUsers className={styles.Icon} />Players</NavigationItem>
                 <NavigationItem link='/rankings'> <GiPodiumWinner className={styles.Icon} />Rankings</NavigationItem>
+                <hr className={styles.Line} />
+                <NavigationItem link={`/profile/${user && user.userId}`} > <FaUser className={styles.Icon} />Profile</NavigationItem>
                 <NavigationItem link='/sign-out' onClick={logOutHandler}> <GoSignOut className={styles.Icon} />Sign Out</NavigationItem>
             </ul>
         )
