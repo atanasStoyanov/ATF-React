@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import styles from './Profile.module.css';
 
-import { getUserData } from '../../utils/user';
+import { getUserData, deleteAccount, deleteUserFromDb } from '../../utils/user';
 import getCookie from '../../utils/getCookie';
 
 import Aux from '../../hoc/Auxiliary/Auxiliary';
@@ -39,12 +39,19 @@ const Profile = props => {
 
     }, [userId, currentUserId]);
 
-    const deleteAccount = () => {
-        console.log('Account Deleted');
-        const cookie = getCookie('x-auth-token');
-        console.log(cookie);
+    const handleDeleteAccount = async () => {
+        const idToken = getCookie('x-auth-token');
 
-        history.push('/')
+        deleteAccount('https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyA6Peyo5GN3spsTPYMadeQlfkp91rj6YMA',
+            idToken,
+            () => {
+                context.logOut();
+                deleteUserFromDb(user.userIdentification);
+                history.push('/');
+            },
+            (e) => {console.log(e)}
+        );
+
     }
 
 
@@ -59,7 +66,7 @@ const Profile = props => {
         controls = (
             <div className={styles.Controls}>
                 <LinkButton to={`/profile/edit/${user && userId}`} title='Edit Profile' />
-                <SubmitButton onClick={deleteAccount} title='Delete Account' />
+                <SubmitButton onClick={handleDeleteAccount} title='Delete Account' />
             </div>
         );
     } else {

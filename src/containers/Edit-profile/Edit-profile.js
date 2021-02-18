@@ -10,7 +10,6 @@ import SubmitButton from '../../components/Button/SubmitButton';
 import LinkButton from '../../components/Button/LinkButton';
 import InputSection from './InputSection/InputSection';
 import ImageSection from './ImageSection/ImageSection';
-import BackButton from '../../components/Button/BackButton';
 
 import { checkValidity } from '../../utils/checkValidity';
 import { getUserData, updateUserInDb } from '../../utils/user';
