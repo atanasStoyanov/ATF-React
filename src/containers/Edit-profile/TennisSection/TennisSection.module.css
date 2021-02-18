@@ -13,3 +13,22 @@
     margin: 0.5em; 
     padding: 0 0.2em;
 }
+
+@media (max-width: 685px) {
+    .Inputs-section {
+        width: 90%;
+        margin: 1em 0;
+    }
+
+    .Tennis-fields{
+        flex-flow: column;
+        align-items: center;
+        margin: 1em 0;
+        border: 2px solid rgb(245, 200, 0);
+    }
+
+    .Legend {
+        color: rgb(245, 200, 0);
+        
+    }
+}

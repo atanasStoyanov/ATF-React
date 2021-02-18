@@ -9,7 +9,9 @@
     font-size: 1.2rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     color: rgb(247, 220, 95);
-    min-width: 45%
+    min-width: 45%;
+    position: relative;
+    z-index: 100;
 }
 
 .Submit:hover {
@@ -28,6 +30,6 @@
 
 @media (max-width: 685px) {
     .Submit {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }

@@ -29,9 +29,6 @@
 }
 
 @media (max-width: 685px) {
-    .Name {
-        margin-top: 2.5em;
-    }
 
     .Name h1 {
         font-size: 3em;

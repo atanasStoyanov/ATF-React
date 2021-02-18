@@ -8,7 +8,9 @@
     font-size: 1.2rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.568);
     text-align: center;
-    min-width: 45%
+    min-width: 45%;
+    position: relative;
+    z-index: 100;
 }
 
 .LinkBtn:hover {
@@ -30,6 +32,6 @@
 
 @media (max-width: 685px) {
     .LinkBtn {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
