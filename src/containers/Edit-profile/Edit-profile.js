@@ -7,8 +7,10 @@ import PageLayout from '../PageLayout/PageLayout';
 import InputEl from '../../components/Input/InputEl';
 import Spinner from '../../components/Spinner/Spinner';
 import SubmitButton from '../../components/Button/SubmitButton';
+import LinkButton from '../../components/Button/LinkButton';
 import InputSection from './InputSection/InputSection';
 import ImageSection from './ImageSection/ImageSection';
+import BackButton from '../../components/Button/BackButton';
 
 import { checkValidity } from '../../utils/checkValidity';
 import { getUserData, updateUserInDb } from '../../utils/user';
@@ -328,11 +330,14 @@ const UpdateProfile = props => {
                         <form className={styles.Form} onSubmit={handleSubmit}>
                             <h3>Edit Profile Details</h3>
                             <div className={styles.Elements}>
-                                <InputSection personalElements={personalElements} measuresElements={measuresElements}/>
-                                <ImageSection loading={loading} imageElement={imageElement} src={formElements.image.value || playerIcon}/>
+                                <InputSection personalElements={personalElements} measuresElements={measuresElements} />
+                                <ImageSection loading={loading} imageElement={imageElement} src={formElements.image.value || playerIcon} />
                             </div>
-                            <TennisSection tennisElements={tennisElements}/>
-                            <SubmitButton title='Save updates' />
+                            <TennisSection tennisElements={tennisElements} />
+                            <div className={styles.Controls}>
+                                <SubmitButton title='Save updates' />
+                                <LinkButton to={`/profile/${userId}`} title='Discard changes' />
+                            </div>
                         </form>
                     )
                 }

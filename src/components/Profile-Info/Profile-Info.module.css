@@ -30,12 +30,8 @@
 }
 
 @media (max-width: 685px) {
-    .Media {
-        height: auto;
-    }
 
     .Media:before {
-        width: 100%;
-        height: auto;
+        height: 100%;
     }
 }

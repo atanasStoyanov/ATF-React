@@ -44,3 +44,14 @@
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease-in;
 }
+
+/* @media (max-width: 1025px) {
+    
+} */
+
+@media (max-width: 685px) {
+    .Image-section {
+        width: 100%;
+        margin-top: 1em;
+    }
+}

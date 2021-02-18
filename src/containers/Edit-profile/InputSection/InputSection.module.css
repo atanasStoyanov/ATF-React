@@ -19,3 +19,24 @@
     margin: 0.5em; 
     padding: 0 0.2em;
 }
+
+/* @media (max-width: 1025px) {
+    
+} */
+
+@media (max-width: 685px) {
+    .Inputs-section {
+        width: 90%;
+        margin: 1em 0;
+    }
+
+    .Fields{
+        margin: 1em 0;
+        border: 2px solid rgb(245, 200, 0);
+    }
+
+    .Legend {
+        color: rgb(245, 200, 0);
+        
+    }
+}
