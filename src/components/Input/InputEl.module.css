@@ -63,3 +63,18 @@
     outline: none;
     background-color: #ccc;
 }
+
+
+@media (max-width: 685px) {
+    .Label {
+     font-size: 1rem;
+    }
+
+    .InputElement input {
+        font-size: 0.9rem;
+    }
+
+    .Select {
+        font-size: 0.9rem;
+    }
+}

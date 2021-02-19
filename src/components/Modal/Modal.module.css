@@ -1,0 +1,31 @@
+.Modal {
+    position: fixed;
+    z-index: 300;
+    height: auto;
+    width: 30vw;
+    background-color: #dddbdb;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    top: 35vh;
+    left: 35vw;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1025px) {
+    .Modal {
+        width: 60vw;
+        left: 20vw;
+    }
+}
+
+@media (max-width: 685px) {
+    .Modal {
+     width: 90vw;
+     left: 5vw;
+    }
+}
