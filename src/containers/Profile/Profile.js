@@ -6,6 +6,7 @@ import styles from './Profile.module.css';
 import { getUserData, deleteAccount, deleteUserFromDb } from '../../utils/user';
 import getCookie from '../../utils/getCookie';
 
+import DeleteModal from '../../components/Modal/DeleteModal/DeleteModal';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import PageLayout from '../PageLayout/PageLayout';
 import Spinner from '../../components/Spinner/Spinner';
@@ -19,6 +20,7 @@ const Profile = props => {
 
     const [user, setUser] = useState(null);
     const [isCurrentUser, setIsCurrentUser] = useState(false);
+    const [deleteProfile, setDeleteProfile] = useState(false);
 
     const context = useContext(UserContext)
     const history = useHistory();
@@ -39,7 +41,15 @@ const Profile = props => {
 
     }, [userId, currentUserId]);
 
-    const handleDeleteAccount = async () => {
+    const openDeleteModal = async () => {
+        setDeleteProfile(true);
+    }
+
+    const deleteCanceled = () => {
+        setDeleteProfile(false);
+    }
+
+    const handleDeleteAccount = () => {
         const idToken = getCookie('x-auth-token');
 
         deleteAccount('https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyA6Peyo5GN3spsTPYMadeQlfkp91rj6YMA',
@@ -49,11 +59,9 @@ const Profile = props => {
                 deleteUserFromDb(user.userIdentification);
                 history.push('/');
             },
-            (e) => {console.log(e)}
+            (e) => { console.log(e) }
         );
-
     }
-
 
     useEffect(() => {
         getData();
@@ -66,7 +74,7 @@ const Profile = props => {
         controls = (
             <div className={styles.Controls}>
                 <LinkButton to={`/profile/edit/${user && userId}`} title='Edit Profile' />
-                <SubmitButton onClick={handleDeleteAccount} title='Delete Account' />
+                <SubmitButton onClick={openDeleteModal} title='Delete Account' />
             </div>
         );
     } else {
@@ -84,6 +92,14 @@ const Profile = props => {
 
     return (
         <PageLayout>
+            <DeleteModal
+                show={deleteProfile}
+                close={deleteCanceled}
+                title='Delete Account'
+                message='Are you sure you want to delete your account?'
+                deleteCanceled={deleteCanceled}
+                handleDelete={handleDeleteAccount}
+            />
             <div>
                 {!user ? <Spinner /> : profile}
             </div>

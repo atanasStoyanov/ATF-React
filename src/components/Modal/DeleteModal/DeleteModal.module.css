@@ -1,0 +1,71 @@
+.Icon {
+    font-size: 3.5rem;
+    color: rgb(238, 62, 62);
+    margin-bottom: 0.5rem;
+}
+
+.Text {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Text h3 {
+    color: #222629;
+    padding: 0 0 0.5rem 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.Text h5 {
+    color: #222629;
+    padding: 0.5rem 0 1rem 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+.Controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 0.5rem;
+    width: 100%;
+}
+
+.CancelBtn {
+    width: 20%;
+    height: 2.5rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    transition: all 0.1s ease;
+
+}
+
+.DeleteBtn {
+    width: 20%;
+    height: 2.5rem;
+    background-color: rgb(238, 62, 62);
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    color: #FFF;
+    transition: all 0.1s ease-in;
+}
+
+.DeleteBtn:hover, .CancelBtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 685px) {
+    .CancelBtn, .DeleteBtn {
+     width: 25%;
+     font-size: 0.9rem;
+    }
+}
